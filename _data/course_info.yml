@@ -1,0 +1,47 @@
+times: Tuesdays, Thursdays 6:25pm - 7:40pm
+room: PG6 141 (new room!)
+name: Alex Afanasyev
+contact: aa at cs.fiu.edu
+office_hours: By appointment
+
+homeworks_due: Wednesday of the week following the assignment, 11:59pm
+midterm: Oct 1, 2019
+
+assignments:
+
+  - name: Homeworks
+    items:
+     - name:     Homework 1 (LaTeX)
+       deadline: Sep 4, 2019
+     - name:     Homework 2 (IP)
+       deadline: Sep 11, 2019
+     - name:     Homework 3 (tcpdump)
+       deadline: Sep 18, 2019
+     - name:     Homework 4 (DNS)
+       deadline: Oct 2, 2019
+     - name:     Homework 5 (SDN install)
+       deadline: Oct 9, 2019
+     - name:     Homework 6 (MiniNet)
+       deadline: Oct 16, 2019
+     - name:     Homework 7
+       deadline: Oct 23, 2019
+     - name:     Homework 8 (Reviews)
+       deadline: Nov 27, 2019
+
+  - name: Project paper
+    items:
+     - name:     Topics
+       deadline: Sep 19, 2019
+     - name:     References
+       deadline: Sep 26, 2019
+     - name:     Presentation
+       deadline: Oct 29, 2019
+     - name:     Revised Presentation
+       deadline: Nov 5, 2019
+     - name:     Final draft
+       deadline: Nov 19, 2019
+
+final: Oct 29, 2019
+# final_room: GL 139
+
+# projects:

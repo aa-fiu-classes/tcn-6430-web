@@ -1,0 +1,139 @@
+---
+layout: page
+title: Syllabus
+group: Syllabus
+---
+
+{% include basic-course-info.html %}
+
+## Basic Course Information
+
+The ultimate goal of networks is to effectively move packets.
+To do this, you have to create the network, plan the network, configure it, figure out the policies you want to support, run it, and figure out what to do when problems arise.
+However, network management remains the least understood aspect of networking.
+Managers of today's enterprise and carrier networks face great challenges, as they need to manage a variety of devices, protocols and mechanisms, to meet a diverse set of goals in performance, security, availability and costs.
+This course provides students with a comprehensive view of the network management problem, including its concepts, scope, challenges, and techniques.
+We will study the network management concepts in concrete applications and scenarios such as MPLS, VPN, VLAN, etc.
+As a highlight of this course, we will also spend significant amount of time studying emerging networking technologies such as Software Defined Networking, to better prepare students for managing future IT infrastructures.
+
+This class does require python programming.
+Depending on the need, a few lectures of Python will be provided.
+However, the programming is always related to this class's networking topic.
+
+## Status of Syllabus:
+
+Current. (Last updated: 08/27/2019)
+
+## Course Objectives
+
+- Understand networking stack and interdependencies among different layers
+
+- Define network management (e.g. configuration, monitoring, problem discovery, traffic policy, etc.)
+
+- Identify and compare approaches to automatically managing networks 
+
+- Analyze network problems to determine the root cause and relevant layer
+
+- Describe how network problem discovery can be automated 
+
+- Identify and describe common network problems 
+
+- Explore and analyze classic and recent approaches to solving common network problems
+
+- Practice managing a small-scale network, including writing scripts 
+
+- Apply recent tools to managing a small-scale network, including some programming
+
+- Develop research skills related to finding and reading current literature
+
+- Write a review of current literature on an aspect of network management 
+
+- Select a technical paper and summarize it for the class in a brief presentation 
+
+## Pre-requisites
+
+A solid knowledge of networking (e.g., layered Internet architecture, basic switching and routing concepts).
+Students should have taken a general computer networking course such as TCN 5030.
+Basic programming knowledge is recommended for the project.
+If you are not sure you meet the requirements, please feel free to talk to me.
+
+## Textbook
+
+There is no required textbook for this class, but students are expected to do their own research online, using Wikipedia, RFCs, and other technical documentation.
+
+## Course Workload and Grading Information
+
+- (35%) Homeworks
+
+  * (2.5% each) 2 warm-up homeworks
+  * (5% each) 4 homeworks
+  * (5% each) 2 paper reviews
+
+- (35%) Exams
+
+  * (15%) Midterm on networking concepts
+  * (20%) Final on network management
+
+- (20%) Project paper _(comprehensive survey of technical papers, industry standards, and/or products)_
+
+  * (2%) Selected topics
+  * (2%) References
+  * (2%) Outline
+  * (14%) Final paper
+
+- (5%) Project paper presentation
+
+- (5%) In-class participation and other extra credit
+
+## Contacting the Course Staff (Email and Office Hours) and Class Participation
+
+You are all encouraged to visit me during office hours or email me with questions.
+Class participation is very welcomed and will be rewarded.
+Do not hesitate to ask questions in the class, in most, if not all cases, the entire class will benefit from the answers received (what you may think as a silly or naïve question may in fact be a genuine question that also other students in the class may have).
+
+When you email us make sure you include **[TCN-6430]** in your email's subject line in order for the email to receive the proper attention.
+If you don't include it, my mail filter will most likely discard your email.
+{: class="bs-callout bs-callout-info" }
+
+We will use piazza for in-class communication, so you are welcome to post questions there.
+All enrolled students will be added to the class piazza.  If you haven't received invitation email, please let me know.
+
+## Course Policies **(Read This Carefully)**
+
+- Homework assignment must be done by **each student individually**
+
+- Project paper must be done in **groups of 2**
+
+- No late homework or project submission.
+
+- No make-up examinations.
+
+- Instructor reserves right to change course materials or dates as necessary.
+
+Adherence to the University's Code of Ethics will be strictly monitored and enforced.  This will be applicable to homeworks, projects and examinations.  By registering for this course the student is assumed to automatically abide by the Code of Ethics which applies to any work generated by the student, including homeworks, examinations, project assignments.  Academic integrity violations, such as plagiarism, cheating on an exam etc., will result in a series of actions and penalties including the possibility of the student failing the class or being expelled from the university.  Note that all parties involved in cases of academic integrity violations are disciplined.  Therefore, students should take this matter seriously and are expected to fully cooperate and support the atmosphere of trust and individual achievement.  If you need assistance with class-related issues it is better if you contact the course's staff.  Students are encouraged to discuss among themselves issues related to the course material in order to deepen their understanding, or to share information regarding the use of programming tools, development environments, or debugging techniques.
+{: class="bs-callout bs-callout-warning" }
+
+## Project Paper Requirements
+
+<div markdown="1" class="bs-callout bs-callout-danger">
+No copyright violations:
+- You must to re-draw all figures (any unmodified figures need permissions from copyright holders)
+- You must to summarize all ideas in your *own* words
+- Cannot copy any part of text or figure unmodified
+- Short quotes ok if properly referenced
+
+**Any infringement will result in forfeiture of grades even after graduation.**
+
+</div>
+
+## Future Changes to This Document
+
+From Faculty's handbook:
+
+Instructors retain the right to modify the course syllabus for any reason throughout the semester provided that:
+
+- Fair and adequate notice is given to enrolled students either by e-mail, in writing, or through online publishing.
+- Modifications to the syllabus are not arbitrary or capricious.
+- Students are not unfairly disadvantaged by mid-semester changes to grading standards, attendance standards, or performance measures.
+
+NOTE: In most cases, I will only change this document to accommodate the entire class. I will let you know if there are any changes.
