@@ -20,10 +20,6 @@ As a highlight of this course, we will also spend significant amount of time stu
 
 Note that starting (and including) August 29, 2019 lecture (lecture 2), we will be in PG6 141, entrance from **outside** of **west** side of PG-6.
 
-{% comment %}
-
 ## Course Announcements
 
-- None so far
-
-{% endcomment %}
+- Sept 3, 2019 class canceled, as university is still closed. Note that Sept 5, 2019 lecture will be online (no physical class), the following lectures continue as usual.
