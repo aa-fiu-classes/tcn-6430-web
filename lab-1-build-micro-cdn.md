@@ -56,7 +56,7 @@ Update/upgrade packages and install `apache` authoritative DNS server:
 ```
 sudo apt update
 sudo apt upgrade
-apt install apache2
+sudo apt install apache2
 ```
 
 With default configuration, the installed Apache HTTP server will serve content from `/var/www/html` folder.
