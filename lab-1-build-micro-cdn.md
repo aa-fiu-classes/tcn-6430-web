@@ -17,7 +17,7 @@ This would involve creating VMs, setting up a DNS server, configuring a delegate
 
 ### 1. Create firewall rule
 
-Go to Google Cloud Console -> VPC Network -> Firewall Rules.  If missing, create a rule "allow-dns" so it allows from any source IP address (0.0.0.0/0) to access UDP and TCP port 53.
+Go to Google Cloud Console -> VPC Network -> Firewall Rules.  If missing, create a rule "allow-dns" and assign it a tag "allow-dns" so it allows from any source IP address (0.0.0.0/0) to access UDP port 53 and TCP port 53.
 
 ### 2. Create VMs
 
