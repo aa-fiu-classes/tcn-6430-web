@@ -175,9 +175,9 @@ $ORIGIN delegated.domain.name.
 ;
 @	IN	NS	ns1.delegated.domain.name.
 
-ns1 IN  A   <IP address of dns-server-1>
+ns1 IN  A   1.2.3.4   ; IP address of dns-server-1
 
-www	IN	A	<IP address of http-1 or http2>  ; each of zone files MUST contain exactly 1 resource record for `www` domain
+www	IN	A	5.6.7.8   ; IP address of http-1 or http2  ; each of zone files MUST contain exactly 1 resource record for `www` domain
 ```
 
 After you are done, you can reload DNS server daemon so it picks up the changed you have made.
@@ -201,7 +201,7 @@ You can do the same without dig, by just pointing your web browser to http://www
 
 ## Conclusion / Submission
 
-Write a short report (up to 1 page, any format) that includes
+In Gradescope, submit
 
 - your name, ID, delegated domain name, and public IP addresses of all created VM instances
 
