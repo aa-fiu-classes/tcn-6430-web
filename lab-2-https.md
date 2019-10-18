@@ -14,6 +14,9 @@ In this lab, you will obtain HTTPS certificates for your HTTP instances from lab
 Using tools provided by Let's Encrypt CA (actually, these are now tools following [ACME standard](https://tools.ietf.org/html/rfc8555)), the process is quite simple and involves just running a few commands.
 Before these automation tools, it involved a lot of manual generation of certificates, certificate requests, manually sending to a CA, and then properly configuring your apache server to use those certificates.
 
+Instructions below assume you are working with `http-1` or `http-2` instance from lab-1, which use Ubuntu 18.04 Linux VMs.
+If you are using a different environment (for the lab or in other environment), you can follow the official instructions provided on [certbot website](https://certbot.eff.org/).
+
 ## Tasks
 
 ### Ensure Firewall Rules
