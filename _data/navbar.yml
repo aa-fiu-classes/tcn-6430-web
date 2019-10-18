@@ -8,5 +8,7 @@
   link: /faq.html
 - name: Lab 1
   link: /lab-1-build-micro-cdn.html
+- name: Lab 2
+  link: /lab-2-https.html
 # - name: Project
 #   link: /project.html
