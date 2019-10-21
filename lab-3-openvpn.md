@@ -45,7 +45,7 @@ Create an instance with name `openvpn-1` with the following parameters:
 </div>
 
 
-### 2. Instal dependencies
+### 2. Install dependencies
 
 You will need to OpenVPN, which is the VPN server itself, and EasyRSA, package that will allow us to set up an internal certificate authority (CA) to use.
 
@@ -281,7 +281,7 @@ So, our interface is `ens4`. With this, we’ll update our firewall rules:
 sudo vim /etc/ufw/before.rules
 ```
 
-Above where it says `Don't delete these required lines...` add the following code:
+Above just above where it says `Don't delete these required lines...` add the following code:
 
 ```
 # OPENVPN
@@ -328,7 +328,13 @@ cd ~/openvpn-ca/keys
 sudo cp ca.crt tcn6430.crt tcn6430.key tiv.key dh2048.pem /etc/openvpn
 ```
 
-Create the following config file `/etc/openvpn/tcn6430.conf` (e.g., `sudo vim /etc/openvpn/tcn6430.conf`):
+Create the following OpenVPN server config file `/etc/openvpn/tcn6430.conf`
+
+```bash
+sudo vim /etc/openvpn/tcn6430.conf
+```
+
+with the content:
 
 ```bash
 local 0.0.0.0
@@ -453,7 +459,13 @@ The client keys will be within these configs, so let’s lock the permissions on
 chmod 700 ~/clients/files
 ```
 
-Create the base configuration `~/clients/base.conf`:
+Create the base configuration `~/clients/base.conf`
+
+```
+vim ~/clients/base.conf
+```
+
+with the content:
 
 ```
 client
@@ -477,6 +489,14 @@ auth SHA256
 
 verb 3
 ```
+
+**STOP here.**
+{: class="bs-callout bs-callout-warning" }
+
+**DO NOT** blindly copy the contents of the above into `base.conf` file. You **HAVE TO CHANGE IP ADDRESS** in the `base.conf` to the public IP address of your VPN server instance.
+Otherwise, the clients would be trying to connect to non-existing server.
+
+Edited? OK, now you can continue.
 
 Next, you will need to write a script to generate the client configs quickly and easily.
 
