@@ -10,5 +10,9 @@
   link: /lab-1-build-micro-cdn.html
 - name: Lab 2
   link: /lab-2-https.html
+- name: Lab 3
+  link: /lab-3-openvpn.html
+- name: Lab 4
+  link: /lab-4-outline.html
 # - name: Project
 #   link: /project.html
