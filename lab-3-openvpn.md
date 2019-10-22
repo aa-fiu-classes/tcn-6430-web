@@ -10,10 +10,10 @@ group: "Lab 3"
 
 ## Overview
 
-The goal of this lab is to experience advance network setup and, specifically, setting up an OpenVPN server and configuring corresponding clients.
-While the process is straightforward, it involves a lot of steps that needs to be followed correctly.
+The goal of this lab is to experience an advance network setup and, specifically, setting up the OpenVPN server and configuring clients.
+While the process is straightforward, it involves a lot of steps that need to be followed correctly.
 
-Instructions in this lab are adopted from [Medium.com tutorial](https://medium.com/teendevs/setting-up-an-openvpn-server-on-google-compute-engine-9ff760d775d9).
+The instructions in this lab are adopted from [Medium.com tutorial](https://medium.com/teendevs/setting-up-an-openvpn-server-on-google-compute-engine-9ff760d775d9).
 
 ## Tasks
 
@@ -23,7 +23,7 @@ Instructions in this lab are adopted from [Medium.com tutorial](https://medium.c
 
 <div class="col-sm-12 col-md-8" markdown="1">
 
-Create an instance with name `openvpn-1` with the following parameters:
+Create an instance with the name `openvpn-1` and the following parameters:
 
 - Region: `us-east1`, zone `us-east1-b`
 
@@ -31,11 +31,11 @@ Create an instance with name `openvpn-1` with the following parameters:
 
 - Boot disk: `Ubuntu 18.04 LTS`
 
-    Note. I recommend that you do not select the "minimal" version, as it is missing a lot of things, such as command line editors.
+    Note. I recommend that you do not select the "minimal" version, as it is missing a lot of things, such as command-line editors.
 
 - Firewall: `Allow HTTP traffic` and `Allow HTTPS traffic`
 
-    Other firewall settings are up to you. You can enable other ports, but those not required by this lab.
+    Other firewall settings are up to you. You can enable other ports, but those not required in this lab.
 
 </div>
 
@@ -47,7 +47,7 @@ Create an instance with name `openvpn-1` with the following parameters:
 
 ### 2. Install dependencies
 
-You will need to OpenVPN, which is the VPN server itself, and EasyRSA, package that will allow us to set up an internal certificate authority (CA) to use.
+You will need to install `openvpn`, which is the VPN server itself, and `easy-rsa`, the package that will allow you to set up an internal certificate authority (CA).
 
 ```bash
 sudo apt update
@@ -62,7 +62,7 @@ apt update
 apt install openvpn easy-rsa
 ```
 
-Optionally, you can also upgrade all packages to their latest versions using `sudo apt upgrade` (generally, a good idea to keep everything up-to-date), but it is not required for this lab.
+Optionally, you can also upgrade all the packages to their latest versions using `sudo apt upgrade` (generally, a good idea to keep everything up-to-date), but it is not required in this lab.
 
 ### 3. Set up CA
 
@@ -70,7 +70,7 @@ Optionally, you can also upgrade all packages to their latest versions using `su
 
 Because OpenVPN uses TLS/SSL, it needs certificates to encrypt traffic.
 For this, you will need to issue your own trusted certificates, which we can do using the custom CA.
-First step is to run `make-cadir` command from EasyRSA package (note that you do not have to do it as superuser):
+First step is to run `make-cadir` command from the EasyRSA package (note that you do not have to do it as superuser):
 
 ```bash
 make-cadir ~/openvpn-ca
@@ -78,11 +78,11 @@ cd ~/openvpn-ca
 cp openssl-1.0.0.cnf openssl.cnf
 ```
 
-Note that the last step is necessary to ensure everything works. Otherwise, you will most likely going to get errors at the later stages.
+The last step is necessary to ensure that everything works in Ubuntu 18.04. Otherwise, you will most likely going to get errors at the later stages.
 
-In lab-2 you already explored a bit content of the certificates: common name, serial number.
-It also can contain various additional information about the certificate subject: country, address, company division, etc.
-The same applies for a certificate (self-signed one) that is created during CA setup.
+In lab-2 you have already explored contents of the certificates: common name, serial number.
+The certificate can also contain various additional parameters about the certificate: country, address, company division, etc.
+The same applies for the certificate (the self-signed one) that is created during the CA setup.
 For this, you would need to edit `vars` file that was automatically created in `~/openvpn-ca` folder.
 
 You can keep most of the default values, except that you need to change `KEY_COUNTRY`, `KEY_PROVINCE`, `KEY_CITY`, `KEY_ORG`, `KEY_EMAIL`, `KEY_OU`, and `KEY_NAME` fields.
@@ -239,7 +239,7 @@ openvpn --genkey --secret keys/tiv.key
 
 #### 4.2. Take a deep breath
 
-At this point, we almost done with the server part of the configuration.  Dealing with keys is not quite easy and so far, we just configured CA, created a key signed by CA for the server to use, and generated the key that we will use to encrypt traffic between server and clients.  We haven't yet touched VPN, system, or client configuration.
+At this point, we are almost done with the server part of the configuration.  Dealing with keys is not quite easy and, so far, we just configured the CA, created a key signed by the CA for the server to use, and generated the key that we will use to encrypt the traffic between the server and clients.  We have not yet touched the VPN configuration, system updates, or client configuration.
 
 So. Deep breath, and move to the next step.
 
@@ -257,13 +257,13 @@ Look for the following line and remove the # (comment character).
 net.ipv4.ip_forward=1
 ```
 
-Save and close. To update session settings, run:
+Save and close. To update the session settings, run:
 
 ```
 sudo sysctl -p
 ```
 
-Next, we need to find and update our firewall (UFW) rules to masquerade clients. The first step is to find the interface that we’re running on:
+Next, we need to find and update our firewall (UFW) rules to masquerade clients (these are Linux terms for setting up the NAT rules). The first step is to find the interface that we’re running on:
 
 ```
 ip route | grep default
