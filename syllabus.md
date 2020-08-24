@@ -63,10 +63,10 @@ There is no required textbook for this class, but students are expected to do th
 
 ## Course Workload and Grading Information
 
-- (35%) Labs
-- (35%) Exams
+- (20%) Labs
+- (40%) Exams
 
-  * (15%) Midterm on networking concepts
+  * (20%) Midterm on networking concepts
   * (20%) Final on network management
 
 - (20%) Project
