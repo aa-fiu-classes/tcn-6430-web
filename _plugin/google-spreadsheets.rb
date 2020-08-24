@@ -11,8 +11,7 @@ module Jekyll
         return Jekyll.logger.warn "Google spreadsheet data not generated, because 'spreadsheets' is not defined in _config.yml"
       end
 
-      # Re-using sass-cache directory that suppose to be ignored from file watching and is cleaned with `jekyll clean`
-      cacheDir = "#{site.source}/.sass-cache"
+      cacheDir = "#{site.source}/.jekyll-cache"
       if not File.directory? cacheDir
         FileUtils::mkdir_p cacheDir
       end
@@ -29,7 +28,6 @@ module Jekyll
         session = GoogleDrive::Session.from_config(site.config['spreadsheets']['google_client_id'])
         Jekyll.logger.info 'Generating data from Google spreadsheets...'
         site.data['spreadsheets'] = {}
-        site.data['spreadsheets_updated'] = {}
 
         for sheetKey in site.config['spreadsheets']['spreadsheet']
           begin
@@ -37,21 +35,6 @@ module Jekyll
             spreadsheet = session.spreadsheet_by_key(sheetKey)
 
             for ws in spreadsheet.worksheets
-              file = "#{cacheDir}/#{ws.title}.yml"
-              fileMeta = "#{file}.meta"
-
-              site.data['spreadsheets_updated'][ws.title] = ws.updated.to_s
-              Jekyll.logger.warn ws.updated.class
-              Jekyll.logger.warn ws.updated
-              
-              if File.exist?(file) and File.exist?(fileMeta)
-                updated = Time.parse(File.read(fileMeta))
-                if ws.updated.to_i <= updated.to_i
-                  site.data['spreadsheets'][ws.title] = YAML.load_file(file)
-                  next
-                end
-              end
-
               begin
                 list = []
                 ws.list.each do |item|
@@ -59,8 +42,7 @@ module Jekyll
                 end
 
                 site.data['spreadsheets'][ws.title] = list
-                File.write file, list.to_yaml
-                File.write fileMeta, ws.updated
+                # File.write file, list.to_yaml
               rescue
                 Jekyll.logger.warn "Error processing worksheet: ", $!
               end

@@ -22,7 +22,7 @@ However, the programming is always related to this class's networking topic.
 
 ## Status of Syllabus:
 
-Current. (Last updated: 08/27/2019)
+Current. (Last updated: 08/24/2020)
 
 ## Course Objectives
 
@@ -63,27 +63,17 @@ There is no required textbook for this class, but students are expected to do th
 
 ## Course Workload and Grading Information
 
-- (35%) Homeworks
-
-  * (2.5% each) 2 warm-up homeworks
-  * (5% each) 4 homeworks
-  * (5% each) 2 paper reviews
-
+- (35%) Labs
 - (35%) Exams
 
   * (15%) Midterm on networking concepts
   * (20%) Final on network management
 
-- (20%) Project paper _(comprehensive survey of technical papers, industry standards, and/or products)_
+- (20%) Project
 
-  * (2%) Selected topics
-  * (2%) References
-  * (2%) Outline
-  * (14%) Final paper
+- (10%) In-class presentation
 
-- (5%) Project paper presentation
-
-- (5%) In-class participation and other extra credit
+- (10%) In-class participation and other extra credit
 
 ## Contacting the Course Staff (Email and Office Hours) and Class Participation
 

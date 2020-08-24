@@ -1,6 +1,6 @@
 ---
 layout: page
-title: TCN-6430 - Fall 2019
+title: TCN-6430 - Fall 2020
 group: Home
 ---
 
@@ -15,11 +15,3 @@ Managers of today's enterprise and carrier networks face great challenges, as th
 This course provides students with a comprehensive view of the network management problem, including its concepts, scope, challenges, and techniques.
 We will study the network management concepts in concrete applications and scenarios such as MPLS, VPN, VLAN, etc.
 As a highlight of this course, we will also spend significant amount of time studying emerging networking technologies such as Software Defined Networking, to better prepare students for managing future IT infrastructures.
-
-## Room Change
-
-Note that starting (and including) August 29, 2019 lecture (lecture 2), we will be in PG6 141, entrance from **outside** of **west** side of PG-6.
-
-## Course Announcements
-
-- Sept 3, 2019 class canceled, as university is still closed. Note that Sept 5, 2019 lecture will be online (no physical class), the following lectures continue as usual.
