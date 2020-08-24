@@ -90,9 +90,7 @@ All enrolled students will be added to the class piazza.  If you haven't receive
 
 ## Course Policies **(Read This Carefully)**
 
-- Homework assignment must be done by **each student individually**
-
-- Project must be done in **groups of 2**
+- Lab assignments and the project must be done by **each student individually**
 
 - No late homework or project submission.
 
