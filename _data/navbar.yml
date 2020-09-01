@@ -6,6 +6,8 @@
   link: /schedule.html
 - name: FAQ
   link: /faq.html
+- name: Lab 1
+  link: /lab-1-gns3.html
 # - name: Lab 1
 #   link: /lab-1-build-micro-cdn.html
 # - name: Lab 2
