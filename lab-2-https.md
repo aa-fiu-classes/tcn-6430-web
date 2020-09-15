@@ -74,23 +74,11 @@ To test that things are going well, type in the browser the selected domain name
 
 ### 4. Obtain Certificate 
 
-You will need to install a few more dependencies:
-
-- Add Certbot PPA
-
-    You'll need to add the Certbot PPA to your list of repositories. To do so, run the following commands on the command line on the machine and follow the prompts:
-    
-        sudo apt-get update
-        sudo apt-get install software-properties-common
-        sudo add-apt-repository universe
-        sudo add-apt-repository ppa:certbot/certbot
-        sudo apt-get update
-
-- Install Certbot
-
-	Run this command on the command line on the machine to install Certbot:
+To get a certificate using an automated process, you just need to install a `cerbot` app:
 	
-	    sudo apt-get install certbot python-certbot-apache
+    sudo snap install --classic certbot
+
+Done.
 
 Now. A deeeeeeeeeep breath, exhale, and continue.
 
