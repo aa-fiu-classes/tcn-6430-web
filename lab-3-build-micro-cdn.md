@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Lab 1: Build a Micro CDN Using Google Cloud"
-group: "Lab 1"
+title: "Lab 3: Build a Micro CDN Using Google Cloud"
+group: "Lab 3"
 
 ---
 
@@ -21,7 +21,7 @@ Go to Google Cloud Console -> VPC Network -> Firewall Rules.  If missing, create
 
 ### 2. Create VMs
 
-You would need to create 3 VMs (you can leave default 10 GB disk in all cases):
+In addition to VM from lab 2, create 2 more:
 
 - For authoritative DNS server, say "dns-server-1" (you're free to pick your own name)
 
@@ -29,15 +29,7 @@ You would need to create 3 VMs (you can leave default 10 GB disk in all cases):
 
   Make sure you have typed in "allow-dns" tag for the firewall.  When creating, expand "Management, security, disks, networking, sole tenancy" section, go to "Networking" tab, and type in `allow-dns` and press enter.
  
-- For HTTP server 1, say "http-1"
-
-  Create micro-instance with Ubuntu 18.04, use `us-east1-b` zone.
-
-  Make sure you have selected "Allow HTTP traffic" and "Allow HTTPS traffic".  This will automatically add proper firewall tags.
-
-- For HTTP server 2, say "http-2"
-
-  Create micro-instance with Ubuntu 18.04, use `europe-west2-c` zone.
+- Second instance of HTTP server, but use `europe-west2-c` zone.
 
   Make sure you have selected "Allow HTTP traffic" and "Allow HTTPS traffic".  This will automatically add proper firewall tags.
 
@@ -45,41 +37,11 @@ You would need to create 3 VMs (you can leave default 10 GB disk in all cases):
 
 #### 3.1. "http-1" and "http-2"
 
-Configuration of both VMs is similar.  You just need to install Apache HTTP server and upload some content to be served from this micro-CDN instance.
-
-Before you start, note public IP addresses of both instances. You will need them during configuration of DNS server in the next step.
-
-SSH to the server and start configurations
-
-Update/upgrade packages and install `apache` authoritative DNS server:
-
-```
-sudo apt update
-sudo apt upgrade
-sudo apt install apache2
-```
-
-With default configuration, the installed Apache HTTP server will serve content from `/var/www/html` folder.
-For your testing, you can upload there any information, such as pictures and videos of your (or your instructor) favorite cats.
-For your work verification, you must create the following files:
-
-- on "http-1":
-
-`/var/www/html/instance.txt` with content `http-1` as the first line.
-`/var/www/html/owner.txt` with your name as the content
-
-- on "http-2":
-
-`/var/www/html/instance.txt` with content `http-2` as the first line.
-`/var/www/html/owner.txt` with your name as the content
-
-To test before going to the next step, you can simply type in your web browser the public IP of the instance and path to the file, such as (use IP of your instance!)
-
-    http://1.1.1.1/instance.txt
+Follow instructions in the [lab 2](lab-2-https.html).
 
 #### 3.2. "dns-server-1"
 
-Note public IP address of the VM and send it to the instructor. You will be given delegation of a DNS zone.
+**Note public IP address of the VM and send it to the instructor. You will be given delegation of a DNS zone.**
 
 SSH to the server and start configurations.
 
@@ -122,6 +84,8 @@ zone "delegated.domain.name" {
 };
 ```
 
+NOTE that `full.path.to.the.zone` is just an example! and you need to use your own zone name.  Same applies to `delegated.domain.name` below.
+
 If we create a proper zone file, this would be enough for the `delegated.domain.name` domain/zone to start functioning.
 However, when we setting up DNS server for CDN service, this would not be enough, as we would want to return different results depending on who is asking the question.
 While in reality it is done with custom implementations of DNS servers, for micro CDN we could re-use features of Bind.
@@ -132,7 +96,6 @@ Ultimately, what you need to configure should look like this (make sure you use 
 ```
 acl "us" {
   geoip country US;  // must be within US (estimated)
-  ! 131.94.0.0/16;   // but cannot be on FIU network
 };
 
 view "us-outside-fiu" {
