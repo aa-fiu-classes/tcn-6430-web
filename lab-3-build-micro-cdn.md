@@ -79,7 +79,7 @@ You can lookup the basic syntax for `named.conf` file online, but essentially it
 
 ```
 zone "delegated.domain.name" {
-  type "master"; // bind has also concept of "slave" that automatically sync's zone from master (not part of the lab)
+  type master; // bind has also concept of "slave" that automatically sync's zone from master (not part of the lab)
   file "/etc/bind/full.path.to.the.zone.db";
 };
 ```
@@ -94,12 +94,12 @@ In particular, Bind supports so called "views" that can return different zone in
 Ultimately, what you need to configure should look like this (make sure you use zone name that have been assigned to you by the instructor):
 
 ```
-acl "us" {
-  geoip country US;  // must be within US (estimated)
+acl "fiu" {
+  131.94.0.0/16;  // must be within FIU (estimated)
 };
 
-view "us-outside-fiu" {
-  match-clients { us; };
+view "fiu-view" {
+  match-clients { fiu; };
 
   zone "delegated.domain.name" {
     type master;
@@ -115,7 +115,7 @@ view "default" {
 };
 ```
 
-Note that there is an `acl` block that defines one filter (feel free to pick your name for it), which is then used inside `view` named "us-outside-fiu" (again, feel free to pick your name) as part of `match-clients` block.
+Note that there is an `acl` block that defines one filter (feel free to pick your name for it), which is then used inside `view` named "fiu-view" (again, feel free to pick your name) as part of `match-clients` block.
 There is also a "default" view that is being matched to anything that was not matched before.
 
 Compared to the basic example I showed you before, you have acl and multiple (duplicate) zone definitions, each in separate views.
@@ -158,7 +158,7 @@ To check if DNS properly returns what you are expecting, use dig command (or [we
 
     dig www.delegated.domain.name A
 
-If you are on campus or outside US, it should give you IP address of `http-2`, otherwise IP address of `http-1`.
+If you are on campus, it should give you IP address of `http-2`, otherwise IP address of `http-1`.
 
 You can do the same without dig, by just pointing your web browser to http://www.delegated.domain.name and any unique file you have uploaded to each of the instances, e.g., http://www.delegated.domain.name/instance.txt
 
