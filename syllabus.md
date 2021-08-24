@@ -22,7 +22,7 @@ However, the programming is always related to this class's networking topic.
 
 ## Status of Syllabus:
 
-Current. (Last updated: 08/24/2020)
+Current. (Last updated: 08/24/2021)
 
 ## Course Objectives
 
