@@ -1,11 +1,11 @@
 times: Tuesdays, Thursdays 6:25pm - 7:40pm
-room: Zoom
+room: "Chem & Physics 101"
 name: Alex Afanasyev
 contact: aa at cs.fiu.edu
 office_hours: By appointment
 
 homeworks_due: Wednesday of the week following the assignment, 11:59pm
-midterm: Oct 8, 2020
+midterm: TBD
 
 # assignments:
 
@@ -37,7 +37,7 @@ midterm: Oct 8, 2020
 #   #    - name:     Final draft
 #   #      deadline: Nov 19, 2019
 
-final: Nov 24, 2020
+final: TBD
 # # final_room: GL 139
 
 # # projects:
