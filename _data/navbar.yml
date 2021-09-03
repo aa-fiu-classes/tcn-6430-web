@@ -7,11 +7,11 @@
 - name: FAQ
   link: /faq.html
 - name: Lab 1
-  link: /lab-1-gns3.html
-- name: Lab 2
-  link: /lab-2-https.html
-- name: Lab 3
-  link: /lab-3-build-micro-cdn.html
+  link: /lab-1-dns-basic.html
+# - name: Lab 2
+#   link: /lab-2-https.html
+# - name: Lab 3
+#   link: /lab-3-build-micro-cdn.html
 # - name: Lab 2
 #   link: /lab-2-https.html
 # - name: Lab 3
