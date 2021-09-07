@@ -8,10 +8,10 @@
   link: /faq.html
 - name: Lab 1
   link: /lab-1-dns-basic.html
-# - name: Lab 2
-#   link: /lab-2-https.html
-# - name: Lab 3
-#   link: /lab-3-build-micro-cdn.html
+- name: Lab 2
+  link: /lab-2-dnssec-https.html
+- name: Lab 3
+  link: /lab-3-micro-cdn.html
 # - name: Lab 2
 #   link: /lab-2-https.html
 # - name: Lab 3

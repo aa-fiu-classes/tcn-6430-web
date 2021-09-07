@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Lab 3: Build a Micro CDN Using Google Cloud"
+title: "Lab 3: Build a Micro CDN"
 group: "Lab 3"
 
 ---
@@ -19,17 +19,9 @@ This would involve creating VMs, setting up a DNS server, configuring a delegate
 
 Go to Google Cloud Console -> VPC Network -> Firewall Rules.  If missing, create a rule "allow-dns" and assign it a tag "allow-dns" so it allows from any source IP address (0.0.0.0/0) to access UDP port 53 and TCP port 53.
 
-### 2. Create VMs
+### 2. Create second HTTP instance
 
-In addition to VM from lab 2, create 2 more:
-
-- For authoritative DNS server, say "dns-server-1" (you're free to pick your own name)
-
-  Create micro-instance with Ubuntu 18.04, use `us-central1-c` zone.
-
-  Make sure you have typed in "allow-dns" tag for the firewall.  When creating, expand "Management, security, disks, networking, sole tenancy" section, go to "Networking" tab, and type in `allow-dns` and press enter.
- 
-- Second instance of HTTP server, but use `europe-west2-c` zone.
+- Create second instance of HTTP server ("http-2") following [lab 2](lab-2-dnssec-https.html) instruction, but use `europe-west2-c` zone.
 
   Make sure you have selected "Allow HTTP traffic" and "Allow HTTPS traffic".  This will automatically add proper firewall tags.
 
@@ -37,83 +29,37 @@ In addition to VM from lab 2, create 2 more:
 
 #### 3.1. "http-1" and "http-2"
 
-Follow instructions in the [lab 2](lab-2-https.html).
+Follow instructions in the [lab 2](lab-2-dnssec-https.html).
 
 #### 3.2. "dns-server-1"
 
-**Note public IP address of the VM and send it to the instructor. You will be given delegation of a DNS zone.**
-
-SSH to the server and start configurations.
-
-Update/upgrade packages and install `bind9` authoritative DNS server:
-
-```
-sudo apt update
-sudo apt upgrade
-sudo apt install bind9
-```
-
-And now you are ready for the fun part, configuring DNS server.
-
-With the default settings, Bind configuration is located in `/etc/bind` folder.
-Bind can work as caching resolver, authoritative resolver, or both.  In our lab, we will use only the authoritative part, so we will need to delete a few files and then create a few files.
-
-Files to delete:
-
-- db.0
-- db.127
-- db.255
-- db.empty
-- db.local
-- db.root
-- zones.rfc1918
-- named.conf.default-zones
-
-Files to modify:
-
-- `/etc/bind/named.conf`: remove the last line that is referencing `/etc/bind/named.conf.default-zones`
-
-- `/etc/bind/named.conf.local`: This is **the** file where you can define zones for which your DNS server will be acting as authoritative DNS.
-
-You can lookup the basic syntax for `named.conf` file online, but essentially it should contain blocks like:
-
-```
-zone "delegated.domain.name" {
-  type master; // bind has also concept of "slave" that automatically sync's zone from master (not part of the lab)
-  file "/etc/bind/full.path.to.the.zone.db";
-};
-```
-
-NOTE that `full.path.to.the.zone` is just an example! and you need to use your own zone name.  Same applies to `delegated.domain.name` below.
-
-If we create a proper zone file, this would be enough for the `delegated.domain.name` domain/zone to start functioning.
-However, when we setting up DNS server for CDN service, this would not be enough, as we would want to return different results depending on who is asking the question.
+As of right now, we have a functioning authoritative DNS server.
+However, for CDN service, we need a little bit more.
+We need our DNS server to give different A records for `www` domain, depending on who is asking.
 While in reality it is done with custom implementations of DNS servers, for micro CDN we could re-use features of Bind.
 In particular, Bind supports so called "views" that can return different zone information depending on the requester.
 
 Ultimately, what you need to configure should look like this (make sure you use zone name that have been assigned to you by the instructor):
 
-```
-acl "fiu" {
-  131.94.0.0/16;  // must be within FIU (estimated)
-};
-
-view "fiu-view" {
-  match-clients { fiu; };
-
-  zone "delegated.domain.name" {
-    type master;
-    file "/etc/bind/delegated.domain.name-version1";
-  };
-};
-
-view "default" {
-  zone "delegated.domain.name" {
-    type master;
-    file "/etc/bind/delegated.domain.name-version2";
-  };
-};
-```
+    acl "fiu" {
+      131.94.0.0/16;  // must be within FIU (estimated)
+    };
+    
+    view "fiu-view" {
+      match-clients { fiu; };
+    
+      zone "delegated.domain.name" {
+        type master;
+        file "/var/cache/bind/delegated.domain.name-version1";
+      };
+    };
+    
+    view "default" {
+      zone "delegated.domain.name" {
+        type master;
+        file "/var/cache/delegated.domain.name-version2";
+      };
+    };
 
 Note that there is an `acl` block that defines one filter (feel free to pick your name for it), which is then used inside `view` named "fiu-view" (again, feel free to pick your name) as part of `match-clients` block.
 There is also a "default" view that is being matched to anything that was not matched before.
@@ -158,15 +104,10 @@ To check if DNS properly returns what you are expecting, use dig command (or [we
 
     dig www.delegated.domain.name A
 
-If you are on campus, it should give you IP address of `http-2`, otherwise IP address of `http-1`.
+If you are on campus (or when connected via VPN), it should give you IP address of `http-2`, otherwise IP address of `http-1`.
 
 You can do the same without dig, by just pointing your web browser to http://www.delegated.domain.name and any unique file you have uploaded to each of the instances, e.g., http://www.delegated.domain.name/instance.txt
 
 ## Conclusion / Submission
 
-In Gradescope, submit
-
-- your name, ID, delegated domain name, and public IP addresses of all created VM instances
-
-- description of any problems, road blocks, what you have learned, what was interesting, not interesting, etc.
-
+Submit your report to Canvas quiz, answering the posted question.

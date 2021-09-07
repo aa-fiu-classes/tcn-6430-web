@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Lab 1: Simple Network Emulation with GNS3"
-group: "Lab 1"
+title: "Lab 4: Simple Network Emulation with GNS3"
+group: "Lab 4"
 
 ---
 
