@@ -116,6 +116,7 @@ However, before you do that, it is always a good idea to check sanity of the con
  
 If everything is fine, reload DNS server daamon:
 
+    sudo rndc sign delegated.domain.name
     sudo rndc reload 
 
 ### 4. Configure DNSSEC

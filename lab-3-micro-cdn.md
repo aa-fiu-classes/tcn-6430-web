@@ -15,23 +15,17 @@ This would involve creating VMs, setting up a DNS server, configuring a delegate
 
 ## Tasks
 
-### 1. Create firewall rule
-
-Go to Google Cloud Console -> VPC Network -> Firewall Rules.  If missing, create a rule "allow-dns" and assign it a tag "allow-dns" so it allows from any source IP address (0.0.0.0/0) to access UDP port 53 and TCP port 53.
-
-### 2. Create second HTTP instance
+### 1. Create second HTTP instance
 
 - Create second instance of HTTP server ("http-2") following [lab 2](lab-2-dnssec-https.html) instruction, but use `europe-west2-c` zone.
 
   Make sure you have selected "Allow HTTP traffic" and "Allow HTTPS traffic".  This will automatically add proper firewall tags.
 
-### 3. Configuring VMs
+### 2. Configuring HTTP Instances
 
-#### 3.1. "http-1" and "http-2"
+Follow instructions in the [lab 2](lab-2-dnssec-https.html) to configure "http-2" instance in a similar way, just upload a different cat picture.  A cuter one.
 
-Follow instructions in the [lab 2](lab-2-dnssec-https.html).
-
-#### 3.2. "dns-server-1"
+### 3. Re-configuring "dns-server-1"
 
 As of right now, we have a functioning authoritative DNS server.
 However, for CDN service, we need a little bit more.
