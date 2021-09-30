@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Lab 3: OpenVPN"
-group: "Lab 3"
+title: "Lab 7: OpenVPN"
+group: "Lab 7"
 
 ---
 
@@ -607,7 +607,7 @@ Connect VPN and check your public IP address, e.g., by going to [https://whatism
 
 ## Conclusion / Submission
 
-In Gradescope, submit
+Submit to Canvas answering the questions.
 
 - Dedicated key file
 

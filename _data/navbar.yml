@@ -12,13 +12,13 @@
   link: /lab-2-dnssec-https.html
 - name: Lab 3
   link: /lab-3-micro-cdn.html
-# - name: Lab 2
-#   link: /lab-2-https.html
-# - name: Lab 3
-#   link: /lab-3-openvpn.html
-# - name: Lab 4
-#   link: /lab-4-outline.html
-# - name: Project
-#   link: /project.html
-# - name: Lab 4
-#   link: /lab-4-latex.html
+- name: Lab 4
+  link: /lab-4-mail-in-a-box.html
+- name: Lab 5
+  link: /lab-5-gns3.html
+- name: Lab 6
+  link: /lab-6-gns3-routing.html
+- name: Lab 7
+  link: /lab-7-openvpn.html
+# - name: Lab 8
+#   link: /lab-8-outline.html

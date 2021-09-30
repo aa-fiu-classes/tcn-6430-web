@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Lab 4: Simple Network Emulation with GNS3"
-group: "Lab 4"
+title: "Lab 5: Simple Network Emulation with GNS3"
+group: "Lab 5"
 
 ---
 
@@ -144,11 +144,4 @@ After the above configs, each node in the network should be able to communicate 
 
 ## Conclusion / Submission
 
-In Gradescope, submit PDF containing:
-
-- Page 1: Screenshot GNS3 with the running network
-
-- Page 2: Screenshot of pings from PC1 to 1.0.0.254, 3.0.0.1, 3.0.0.2, 2.0.0.254, and 2.0.0.1
-
-- Page 3: Description of any problems, road blocks, what you have learned, what was interesting, not interesting, etc.
-
+Submit to canvas quiz
