@@ -114,9 +114,8 @@ However, before you do that, it is always a good idea to check sanity of the con
  
     sudo /usr/sbin/named-checkconf -z /etc/bind/named.conf
  
-If everything is fine, reload DNS server daamon:
+If everything is fine, reload DNS server daemon:
 
-    sudo rndc sign delegated.domain.name
     sudo rndc reload 
 
 ### 4. Configure DNSSEC

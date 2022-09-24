@@ -10,10 +10,10 @@ plugins:
   - jekyll-assets
 
 title: "TCN-6430: Networks Management and Control Standards"
-description: Fall 2021 (Florida International University)
+description: Fall 2022 (Florida International University)
 author: Alex Afanasyev
 
-baseurl: "/~afanasyev/classes/fall21/TCN-6430"
+baseurl: "/~afanasyev/classes/fall22/TCN-6430"
 url: "https://users.cs.fiu.edu"
 
 timezone: America/New_York
@@ -21,7 +21,7 @@ timezone: America/New_York
 spreadsheets:
   google_client_id: _data/google-id.json
   spreadsheet:
-    - "1kZR77dyACsrr1wIX3LomH4_mzTxFmxtF91At82jp9Dk"
+    - "1IYPoFr4Sw6fjkV1aH_zlJwydR7dB9lu7wytg1J8lqIo"
 
 assets:
   cache: .sass-cache

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: TCN-6430 - Fall 2021
+title: TCN-6430 - Fall 2022
 group: Home
 ---
 
