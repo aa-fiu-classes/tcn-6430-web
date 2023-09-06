@@ -7,7 +7,7 @@ markdown: kramdown
 exclude: ['CNAME', 'Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md', '.sass-cache', '.asset-cache']
 
 plugins:
-  - jekyll-assets
+ - jekyll-assets
 
 title: "TCN-6430: Networks Management and Control Standards"
 description: Fall 2023 (Florida International University)
@@ -18,10 +18,10 @@ url: "https://users.cs.fiu.edu"
 
 timezone: America/New_York
 
-# spreadsheets:
-#   google_client_id: _data/google-id.json
-#   spreadsheet:
-#     - "1ptfogx3gH8jh1f5PNk5EtTfwuMTTwMX4HrPODi--qDM"
+spreadsheets:
+  google_client_id: _data/google-id.json
+  spreadsheet:
+    - "1ptfogx3gH8jh1f5PNk5EtTfwuMTTwMX4HrPODi--qDM"
 
 assets:
   cache: .sass-cache
