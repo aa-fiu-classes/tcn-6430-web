@@ -26,7 +26,7 @@ As there are restrictions on uses of port 25 for Google Cloud it will not be a f
 
 - Instance type: general-purpose, E2 series, e2-micro in `us-east1-b` zone
 
-- Ubuntu 18.04 LTS image.  **Note that it must be Ubuntu 18.04 LTS, it will not work with any other version**
+- Ubuntu 20.04 LTS image.  **Note that it must be Ubuntu 20.04 LTS, it will not work with any other version**
 
 - Disk space: you can leave the default 10 GB disk
 
